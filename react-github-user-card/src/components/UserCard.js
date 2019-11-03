@@ -5,7 +5,7 @@ const UserCard = (props) => {
   return (  
 
     <div>
-      <h2>{props.user.name}</h2>
+      <h1>{props.user.name}</h1>
       <h3>{props.user.login}</h3>
       <p>Followers: {props.user.followers}</p>
     </div>
