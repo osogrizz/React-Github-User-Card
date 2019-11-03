@@ -10,10 +10,11 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
+    width: 340,
+    margin: '20px 8px',
   },
   media: {
-    height: 140,
+    height: 240,
   },
 });
 
@@ -23,12 +24,27 @@ const UserFollowers = (props) => {
   return (
     <>
       {props.userFollowers.map( follower => (
-        <Card className={classes.card} >
-          <CardMedia 
-            className={classes.media}
-            image={follower.avatar_url}
-          />
-          <h2 key={follower.id}>{follower.login}</h2>  
+        <Card key={follower.id} className={classes.card} >
+          <CardActionArea>
+            <CardMedia 
+              className={classes.media}
+              image={follower.avatar_url}
+              />
+            <CardContent>
+              <Typography variant="h5" component="h2" >{follower.login}</Typography>  
+              {/* <Typography variant="body 2" color="textSecondary" component="p">
+                text text text
+              </Typography> */}
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+              <Button size="small" color="primary">
+                share
+              </Button>
+              <Button size="small" color="primary">
+                Learn More
+              </Button>
+          </CardActions >
         </Card>
       ))}
     </>

@@ -49,7 +49,10 @@ class App extends Component {
     return (
       <div className="App">
         <UserCard user={this.state.user} />
-        <Followers userFollowers={this.state.userFollowers} />
+        <div style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
+          <Followers userFollowers={this.state.userFollowers} />
+
+        </div>
         {/* {
           this.state.userFollowers.map( follower => (
             <h2>{follower.login}</h2>  
