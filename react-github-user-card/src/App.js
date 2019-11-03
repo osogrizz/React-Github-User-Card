@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GitHubCalendar from 'react-github-calendar';
+import ReactToolTip from 'react-tooltip'
 
 import UserCard from './components/UserCard';
 import Followers from './components/UserFollowers';
@@ -50,7 +51,11 @@ class App extends Component {
     return (
       <div className="App">
         <UserCard user={this.state.user} />
-        <GitHubCalendar  username="osogrizz" />
+        <div style={{ display: 'flex', textAlign: 'left', justifyContent: 'center' }}>
+          <GitHubCalendar  username="osogrizz" blockSize={12} fontSize={12}>
+            <ReactToolTip delayShow={50} html />
+          </GitHubCalendar>
+        </div>
         <div style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
           <Followers userFollowers={this.state.userFollowers} />
         </div>
