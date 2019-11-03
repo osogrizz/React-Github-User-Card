@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import GitHubCalendar from 'react-github-calendar';
 
-import UserCard from './components/UserCard'
-import Followers from './components/UserFollowers'
+import UserCard from './components/UserCard';
+import Followers from './components/UserFollowers';
 
 class App extends Component {
   constructor(){
@@ -49,15 +50,10 @@ class App extends Component {
     return (
       <div className="App">
         <UserCard user={this.state.user} />
+        <GitHubCalendar  username="osogrizz" />
         <div style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
           <Followers userFollowers={this.state.userFollowers} />
-
         </div>
-        {/* {
-          this.state.userFollowers.map( follower => (
-            <h2>{follower.login}</h2>  
-          ))
-        } */}
       </div>
     );
   }
