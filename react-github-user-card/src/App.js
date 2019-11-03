@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import UserCard from './components/UserCard'
+import Followers from './components/UserFollowers'
 
 class App extends Component {
   constructor(){
@@ -9,7 +10,8 @@ class App extends Component {
     super()
 
     this.state= {
-      user: ''
+      user: '',
+      userFollowers: []
     }
   }
 
@@ -17,16 +19,29 @@ class App extends Component {
     console.log('cDM rendered!')
     const getUsers =  () => {
         fetch('https://api.github.com/users/osogrizz')
-      // .then(  res => console.log(res.json()))
       .then( res => res.json())
       .then( user => {
         this.setState({
           user: user
         })
       })
+
       .catch(err => console.log(err))
+
     }
     getUsers()
+
+    const getFollowers = () => {
+      fetch('https://api.github.com/users/osogrizz/followers')
+      .then(result => result.json())
+      .then( followers => {
+        this.setState({
+          userFollowers: followers
+        })
+      })
+      .catch( err => console.log(err))
+    }
+    getFollowers()
   }
 
 
@@ -34,6 +49,12 @@ class App extends Component {
     return (
       <div className="App">
         <UserCard user={this.state.user} />
+        <Followers userFollowers={this.state.userFollowers} />
+        {/* {
+          this.state.userFollowers.map( follower => (
+            <h2>{follower.login}</h2>  
+          ))
+        } */}
       </div>
     );
   }
