@@ -83,9 +83,10 @@ const GitHubContainer = styled.div`
 const defaultTheme = {
   background: 'transparent',
   text: '#fff',
-  // grade4: '#196127',
-  // grade3: '#239a3b',
-  // grade2: '#7bc96f',
-  // grade1: '#c6e48b',
-  // grade0: '#ebedf0',
+  grade4: '#ff6a00',
+  grade3: '#fc8403',
+  grade2: '#fca103',
+  grade1: '#fcc603',
+  grade0: '#777',
+
 };
