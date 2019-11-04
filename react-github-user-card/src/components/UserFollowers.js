@@ -21,6 +21,10 @@ const useStyles = makeStyles({
   },
   button: {
     color: '#90caf9'
+  },
+  links: {
+    textDecoration: 'none',
+    color: '#fff'
   }
 });
 
@@ -31,25 +35,28 @@ const UserFollowers = (props) => {
     <>
       {props.userFollowers.map( follower => (
         <Card key={follower.id} className={classes.card} >
-          <CardActionArea>
-            <CardMedia 
-              className={classes.media}
-              image={follower.avatar_url}
-              />
-            <CardContent>
-              <Typography variant="h5" component="h2" >{follower.login}</Typography>  
-              {/* <Typography variant="body 2" color="textSecondary" component="p">
-                text text text
-              </Typography> */}
-            </CardContent>
+          <CardActionArea >
+            <a href={follower.html_url} target="_blank" rel="noopener noreferrer" className={classes.links} >
+              <CardMedia 
+                className={classes.media}
+                image={follower.avatar_url}
+                
+                />
+              <CardContent>
+                <Typography variant="h5" component="h2" >{follower.login}</Typography>  
+                {/* <Typography variant="body 2" color="textSecondary" component="p">
+                  text text text
+                </Typography> */}
+              </CardContent>
+            </a>
           </CardActionArea>
           <CardActions>
-              <Button size="small" className={classes.button}>
-                share
-              </Button>
-              <Button size="small" className={classes.button}>
-                Learn More
-              </Button>
+            <Button size="small" className={classes.button}>
+              Contributions
+            </Button>
+            <Button size="small" className={classes.button}>
+              repo page
+            </Button>
           </CardActions >
         </Card>
       ))}
