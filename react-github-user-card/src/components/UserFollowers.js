@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     width: 340,
     margin: '20px 8px',
     background: '#424242',  
-    color: '#fff'
+    color: '#fff',
   },
   media: {
     height: 240,
@@ -40,23 +40,23 @@ const UserFollowers = (props) => {
               <CardMedia 
                 className={classes.media}
                 image={follower.avatar_url}
-                
-                />
+              />
               <CardContent>
                 <Typography variant="h5" component="h2" >{follower.login}</Typography>  
-                {/* <Typography variant="body 2" color="textSecondary" component="p">
-                  text text text
-                </Typography> */}
               </CardContent>
             </a>
           </CardActionArea>
+
           <CardActions>
             <Button size="small" className={classes.button}>
               Contributions
             </Button>
-            <Button size="small" className={classes.button}>
-              repo page
-            </Button>
+            <a href={`${follower.html_url}?tab=repositories`} target="_blank" rel="noopener noreferrer" className={classes.links}>
+              
+              <Button size="small" className={classes.button}>
+                repo page
+              </Button>
+            </a>
           </CardActions >
         </Card>
       ))}
