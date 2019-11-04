@@ -12,10 +12,16 @@ const useStyles = makeStyles({
   card: {
     width: 340,
     margin: '20px 8px',
+    background: '#424242',  
+    color: '#fff'
   },
   media: {
     height: 240,
+    background: '#fff'
   },
+  button: {
+    color: '#90caf9'
+  }
 });
 
 const UserFollowers = (props) => {
@@ -38,10 +44,10 @@ const UserFollowers = (props) => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-              <Button size="small" color="primary">
+              <Button size="small" className={classes.button}>
                 share
               </Button>
-              <Button size="small" color="primary">
+              <Button size="small" className={classes.button}>
                 Learn More
               </Button>
           </CardActions >

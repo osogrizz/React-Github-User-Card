@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import GitHubCalendar from 'react-github-calendar';
-import ReactToolTip from 'react-tooltip'
+import ReactToolTip from 'react-tooltip';
+import styled from 'styled-components';
 
 import UserCard from './components/UserCard';
 import Followers from './components/UserFollowers';
@@ -51,17 +52,40 @@ class App extends Component {
     return (
       <div className="App">
         <UserCard user={this.state.user} />
-        <div style={{ display: 'flex', textAlign: 'left', justifyContent: 'center' }}>
-          <GitHubCalendar  username="osogrizz" blockSize={12} fontSize={12}>
+        <GitHubContainer>
+          <GitHubCalendar  username="osogrizz" blockSize={12} fontSize={12} theme={defaultTheme} >
             <ReactToolTip delayShow={50} html />
           </GitHubCalendar>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
+        </GitHubContainer>
+        <FolowerConatiner>
           <Followers userFollowers={this.state.userFollowers} />
-        </div>
+        </FolowerConatiner>
       </div>
     );
   }
 }
 
 export default App;
+
+
+const FolowerConatiner = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+`
+
+const GitHubContainer = styled.div`
+  display: flex;
+  text-align: left;
+  justify-content: center;
+`
+
+const defaultTheme = {
+  background: 'transparent',
+  text: '#fff',
+  // grade4: '#196127',
+  // grade3: '#239a3b',
+  // grade2: '#7bc96f',
+  // grade1: '#c6e48b',
+  // grade0: '#ebedf0',
+};
