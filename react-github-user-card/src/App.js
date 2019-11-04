@@ -78,6 +78,7 @@ const GitHubContainer = styled.div`
   display: flex;
   text-align: left;
   justify-content: center;
+  margin: 0 2%;
 `
 
 const defaultTheme = {
